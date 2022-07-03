@@ -89,7 +89,7 @@ module.exports.getCalendarEvents = (event) => {
     redirect_uris[0]
   );
   const access_token = decodeURIComponent(
-    `${event.pathParameters["access-token"]}`
+    `${event.pathParameters.access_token}`
   );
 
   oAuth2Client.setCredentials({ access_token });
