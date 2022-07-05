@@ -20,7 +20,11 @@ const credentials = {
     "http://127.0.0.1:8080",
   ],
 };
+
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
+
+console.log(client_id, client_secret);
+
 const oAuth2Client = new google.auth.OAuth2(
   client_id,
   client_secret,
@@ -71,7 +75,7 @@ module.exports.getAccessToken = async (event) => {
       };
     })
     .catch((err) => {
-      console.error(err);
+      console.log(err);
       return {
         statusCode: 500,
         headers: {
@@ -82,13 +86,14 @@ module.exports.getAccessToken = async (event) => {
     });
 };
 
-module.exports.getCalendarEvents = (event) => {
+module.exports.getCalendarEvents = async (event) => {
   const oAuth2Client = new google.auth.OAuth2(
     client_id,
     client_secret,
     redirect_uris[0]
   );
-  const access_token = decodeURIComponent(
+
+  const access_token = encodeURIComponent(
     `${event.pathParameters.access_token}`
   );
 
@@ -122,8 +127,7 @@ module.exports.getCalendarEvents = (event) => {
       };
     })
     .catch((err) => {
-      //Handle error
-      console.error(err);
+      console.log(err);
       return {
         statusCode: 500,
         headers: {
