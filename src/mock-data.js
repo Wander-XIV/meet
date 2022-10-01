@@ -1,4 +1,4 @@
-const mockDataJSON = [
+const mockData = [
   {
     kind: "calendar#event",
     etag: '"3181161784712000"',
@@ -35,6 +35,9 @@ const mockDataJSON = [
     },
     iCalUID: "4eahs9ghkhrvkld72hogu9ph3e@google.com",
     sequence: 0,
+    reminders: {
+      useDefault: true,
+    },
     eventType: "default",
   },
   {
@@ -73,10 +76,11 @@ const mockDataJSON = [
     },
     iCalUID: "3qtd6uscq4tsi6gc7nmmtpqlct@google.com",
     sequence: 0,
+    reminders: {
+      useDefault: true,
+    },
     eventType: "default",
   },
 ];
-
-const mockData = JSON.parse(JSON.stringify(mockDataJSON));
 
 export { mockData };
