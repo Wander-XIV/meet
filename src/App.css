@@ -1,7 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+html {
+  background-color: #424242;
+  color: #ffffff;
+}
+
 .App {
   text-align: center;
-  padding: 2% 5%;
+  display: block;
+  margin: auto;
 }
 
 .App * {
@@ -15,6 +22,10 @@ ul {
 
 p {
   margin: 5px 0;
+}
+
+.Alert p {
+  margin-top: 50px;
 }
 
 .display-none {
@@ -34,6 +45,7 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
+  margin-top: 50px;
 }
 
 .city {
@@ -46,12 +58,12 @@ input[type="number"] {
   flex-basis: 300px;
   max-width: 300px;
   margin: auto;
-  position: relative;
+  /* position: relative; */
 }
 
 .suggestions {
   width: 250px;
-  position: absolute;
+
   z-index: 2;
   align-self: center;
   margin: 0;
@@ -64,6 +76,7 @@ input[type="number"] {
   text-align: left;
   padding: 8px 6px 8px 10px;
   background-color: #eee;
+  color: #141414;
   cursor: default;
 }
 
@@ -76,13 +89,17 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
-.event {
+.event-visible {
+  justify-content: center;
   padding: 10px 10px 35px;
   margin-bottom: 10px;
-  text-align: left;
+  text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
-  position: relative;
+}
+
+.default {
+  margin-bottom: 25px;
 }
 
 .details-btn {
@@ -128,7 +145,7 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
-.Alert {
+.Alert.CitySearch {
   position: fixed;
   top: 20px;
 }
@@ -139,11 +156,8 @@ input[type="number"] {
   flex-direction: column;
 }
 .data-vis-wrapper .recharts-responsive-container {
-  min-width: 100%;
+  /* min-width: 100%; */
   display: flex;
-}
-.recharts-surface {
-  overflow: visible;
 }
 
 .login-button {
@@ -198,7 +212,28 @@ input[type="number"] {
   font-family: "Roboto";
 }
 
+.div.recharts-wrapper {
+  color: #ffffff;
+}
 
+.recharts-responsive-container {
+  min-height: 50vh;
+  min-width: 50vw;
+}
+
+.pie-wrapper {
+  min-width: 50vw;
+  min-height: 50vh;
+}
+
+.scatter-wrapper {
+  min-width: 50vh;
+  min-height: 50vh;
+}
+
+.recharts-surface {
+  max-width: 900px;
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
@@ -206,8 +241,8 @@ input[type="number"] {
   }
   .data-vis-wrapper .recharts-responsive-container {
     flex-basis: 50%;
-    max-width: 50%;
-    min-width: auto;
-    margin: 0 auto;
+    /* max-width: 50%; */
+    /* min-width: auto;  */
+    /* margin: 0 auto; */
   }
 }
